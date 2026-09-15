@@ -8,7 +8,6 @@ A container contains an application and its required dependencies, making it eas
 ## 📦 Container:
 A container is a lightweight and isolated environment in which an application runs with its dependencies.
 Docker can run multiple containers on the same machine.
-
 Example:
 
 ```text
@@ -21,7 +20,6 @@ Docker
 
 ## 🖼️ Docker Image:
 A Docker image is a blueprint used to create containers.
-
 ```text
 Docker Image
      ↓
@@ -30,7 +28,7 @@ Docker Container
 One image can be used to create multiple containers.
 
 ## ⚙️ Basic Docker Commands:
-
+```bash
 # Check Docker version
 docker --version
 
@@ -66,20 +64,27 @@ docker rmi <image_name>
 
 # View container logs
 docker logs <container_name>
+```
 
 ## 🔌 Port Mapping:
 Port mapping allows us to access an application running inside a container.
 
-# docker run -p 8080:80 <image_name>
-# Host Port : Container Port
-    8080  :      80
+```bash
+docker run -p 8080:80 <image_name>
+```
 
+```text
+Host Port : Container Port
+    8080  :      80
+```
 
 ## 🌐 Docker Networking:
 Docker networks allow containers to communicate with each other.
-# docker network ls
-# docker network create mynetwork
 
+```bash
+docker network ls
+docker network create mynetwork
+```
 
 Example:
 
@@ -92,8 +97,8 @@ Example:
 
 ## 📄 Dockerfile:
 A Dockerfile contains instructions for building a Docker image.
-Example:
 
+Example:
 ```dockerfile
 FROM python:3.12
 
@@ -109,14 +114,20 @@ CMD ["python", "app.py"]
 ```
 
 Build the image:
-# docker build -t my-app .
+
+```bash
+docker build -t my-app .
+```
 
 Run the container:
-# docker run -p 5000:5000 my-app
 
+```bash
+docker run -p 5000:5000 my-app
+```
 
 ## 🐳 Docker Compose:
 Docker Compose is used to manage multiple containers/services together.
+
 Example:
 
 ```yaml
@@ -130,28 +141,35 @@ services:
     image: mongo
 ```
 
-# Start services:
+Start services:
+
+```bash
 docker compose up -d
+```
 
 Stop services:
+
 ```bash
 docker compose down
 ```
 
-## 💾 Docker Volumes
+## 💾 Docker Volumes:
 Volumes are used to store persistent data.
+
 ```bash
 docker volume ls
 docker volume create myvolume
 ```
 
 Use a volume:
+
 ```bash
 docker run --volume myvolume:/data <image_name>
 ```
 
-## ☁️ Docker Hub
+## ☁️ Docker Hub:
 Docker Hub is used to store and share Docker images.
+
 ```bash
 docker login
 docker push username/image-name
@@ -189,4 +207,3 @@ My goal is to learn Docker and understand how to containerize applications, mana
 ⭐ **Learning Docker | Software Engineering Student**
 
 🐳 Build • Ship • Run
-
